@@ -3,6 +3,7 @@ import 'dart:core';
 import 'dart:io';
 import 'dart:math';
 import 'package:alarm/alarm.dart';
+import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 
 import 'notification_functionality.dart';
@@ -27,6 +28,7 @@ class _HomeScreenState extends State<HomeScreen> {
   List<String> watchFaces = ["assets/rolex.jpg","assets/tag_heuer.jpg","assets/ferrari_edition.jpg"];
   int index = 0;
   String? values;
+  String paths = "";
 
 
   @override
@@ -53,6 +55,20 @@ class _HomeScreenState extends State<HomeScreen> {
     else{
       return time.toString();
     }
+  }
+
+  Future getFile() async{
+    FilePickerResult? result = await FilePicker.platform.pickFiles(
+      type: FileType.custom,
+      allowedExtensions: ['mp3'],
+    );
+    final files = result?.files;
+    final path = files?.first.path.toString();
+    final file = File(path!);
+    setState(() {
+      paths = path;
+    });
+
   }
 
   @override
@@ -202,7 +218,7 @@ class _HomeScreenState extends State<HomeScreen> {
                               MaterialStatePropertyAll(Colors.green)),
                       onPressed: () async{
                         setState(() {
-                          alarmSettings  = AlarmSettings(id: alarmId, volume: 0.9,dateTime: DateTime(now!.year,now!.month,now!.day,timeOfDay.hour,timeOfDay.minute,00) , enableNotificationOnKill: true,assetAudioPath: "assets/ringtone.mp3", notificationTitle: "Alarm",loopAudio: true, notificationBody: "Wake up Early");
+                          alarmSettings  = AlarmSettings(id: alarmId, volume: 0.9,dateTime: DateTime(now!.year,now!.month,now!.day,timeOfDay.hour,timeOfDay.minute,00) , enableNotificationOnKill: true,assetAudioPath: paths, notificationTitle: "Alarm",loopAudio: true, notificationBody: "Wake up Early");
                         });
                         await Alarm.set(alarmSettings: alarmSettings!);
                         ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("Alaram was set at ${timeOfDay.format(context)}")));
@@ -221,7 +237,10 @@ class _HomeScreenState extends State<HomeScreen> {
                       child: Text("Stop alarm",
                           style: TextStyle(color: Colors.white))),
                 ],
-              )
+              ),
+              ElevatedButton(onPressed: (){
+                getFile();
+              }, child: Text("Click to choose rigntone"))
             ],
           ),
         ),
