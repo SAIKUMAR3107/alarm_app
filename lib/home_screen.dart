@@ -34,12 +34,14 @@ class _HomeScreenState extends State<HomeScreen> {
     // TODO: implement initState
     super.initState();
     now = DateTime.now();
+    values = watchFaces[0];
     timer = Timer.periodic(Duration(milliseconds: 500), (timer) {
       setState(() {
         now = DateTime.now();
         secondsAngle = (pi / 30) * now!.second;
         minutesAngle = (pi / 30) * now!.minute;
         hoursAngle = (pi / 6 * now!.hour) + (pi / 45 * minutesAngle);
+        values = watchFaces[0];
       });
     });
   }
@@ -200,7 +202,7 @@ class _HomeScreenState extends State<HomeScreen> {
                               MaterialStatePropertyAll(Colors.green)),
                       onPressed: () async{
                         setState(() {
-                          alarmSettings  = AlarmSettings(id: alarmId, dateTime: DateTime(now!.year,now!.month,now!.day,timeOfDay.hour,timeOfDay.minute,00) , enableNotificationOnKill: true,assetAudioPath: "assets/ringtone.mp3", notificationTitle: "Alarm",loopAudio: true, notificationBody: "Wake up Early");
+                          alarmSettings  = AlarmSettings(id: alarmId, volume: 0.9,dateTime: DateTime(now!.year,now!.month,now!.day,timeOfDay.hour,timeOfDay.minute,00) , enableNotificationOnKill: true,assetAudioPath: "assets/ringtone.mp3", notificationTitle: "Alarm",loopAudio: true, notificationBody: "Wake up Early");
                         });
                         await Alarm.set(alarmSettings: alarmSettings!);
                         ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("Alaram was set at ${timeOfDay.format(context)}")));
