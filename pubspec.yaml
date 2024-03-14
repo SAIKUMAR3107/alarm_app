@@ -37,6 +37,7 @@ dependencies:
   cupertino_icons: ^1.0.2
   alarm:
   file_picker:
+  flutter_tts:
 
 
 dev_dependencies:
