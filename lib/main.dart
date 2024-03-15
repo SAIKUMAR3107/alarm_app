@@ -1,18 +1,16 @@
 import 'package:alarm/alarm.dart';
+import 'package:alarm_clock/spalsh_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-//import 'package:android_alarm_manager_plus/android_alarm_manager_plus.dart';
-import 'home_screen.dart';
-import 'notification_functionality.dart';
+
+
 
 
 void main() async{
   WidgetsFlutterBinding.ensureInitialized();
-  //await AndroidAlarmManager.initialize();
   SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
   await Alarm.init();
   runApp(const MyApp());
-  //NotificationService().initNotification();
 }
 
 class MyApp extends StatelessWidget {
@@ -28,7 +26,7 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
       ),
       debugShowCheckedModeBanner: false,
-      home: const HomeScreen(),
+      home: const SplashScreen(),
     );
   }
 }

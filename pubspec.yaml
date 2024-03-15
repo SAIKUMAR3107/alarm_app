@@ -38,6 +38,9 @@ dependencies:
   alarm:
   file_picker:
   flutter_tts:
+  sqflite:
+  path_provider:
+  provider:
 
 
 dev_dependencies:
