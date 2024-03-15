@@ -32,7 +32,12 @@ class _SplashScreenState extends State<SplashScreen> {
             child: Center(
               child: Icon(Icons.alarm,size: 90,color: Colors.white,),
             ),),
-        Positioned(left: MediaQuery.of(context).size.width/2.8,bottom: 10,child: Text("A L A R M",style: TextStyle(fontSize: 30,color: Colors.white,fontWeight: FontWeight.bold,fontFamily: "sans-serif-condensed-light"))),
+        Positioned(
+          bottom: 10,
+          child: Container(
+              width: MediaQuery.of(context).size.width,
+              alignment:Alignment.center,child: Text("A L A R M",style: TextStyle(fontSize: 30,color: Colors.white,fontWeight: FontWeight.bold,fontFamily: "sans-serif-condensed-light"))),
+        ),
         ],
       ),
     );
