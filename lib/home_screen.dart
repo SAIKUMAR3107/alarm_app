@@ -585,8 +585,9 @@ class _HomeScreenState extends State<HomeScreen> {
                                 backgroundColor:
                                     MaterialStatePropertyAll(Colors.green)),
                             onPressed: () async {
+                              print(timeOfDay);
+                              print(now);
                               if (alarmTitle.text.isNotEmpty &&
-                                  (timeOfDay.minute > now!.minute) &&
                                   (timeOfDay.hour >= now!.hour)) {
                                 setState(() {
                                   alarmSettings = AlarmSettings(
