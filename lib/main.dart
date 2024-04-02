@@ -1,5 +1,5 @@
 import 'package:alarm/alarm.dart';
-import 'package:alarm_clock/spalsh_screen.dart';
+import 'package:alarm_clock/screens/spalsh_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 

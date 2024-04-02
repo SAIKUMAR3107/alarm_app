@@ -1,6 +1,6 @@
 import 'dart:async';
 
-import 'package:alarm_clock/home_screen.dart';
+import 'package:alarm_clock/screens/home_screen.dart';
 import 'package:flutter/material.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -30,7 +30,7 @@ class _SplashScreenState extends State<SplashScreen> {
             width: MediaQuery.of(context).size.width,
             color: Color(0xFF301934),
             child: Center(
-              child: Icon(Icons.alarm,size: 90,color: Colors.white,),
+              child: Image.asset("assets/alarm_icon.png",fit: BoxFit.fill,height: 80,width: 80,),
             ),),
         Positioned(
           bottom: 10,

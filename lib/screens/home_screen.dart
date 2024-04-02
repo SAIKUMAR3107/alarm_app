@@ -3,8 +3,8 @@ import 'dart:core';
 import 'dart:io';
 import 'dart:math';
 import 'package:alarm/alarm.dart';
-import 'package:alarm_clock/alarm_model.dart';
-import 'package:alarm_clock/database_helper.dart';
+import 'package:alarm_clock/model/alarm_model.dart';
+import 'package:alarm_clock/database/database_helper.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 

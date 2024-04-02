@@ -1,6 +1,6 @@
 import 'dart:io';
 
-import 'package:alarm_clock/alarm_model.dart';
+import 'package:alarm_clock/model/alarm_model.dart';
 import 'package:path/path.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:sqflite/sqflite.dart';
